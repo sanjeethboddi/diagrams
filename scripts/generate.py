@@ -11,7 +11,7 @@ _usage = "Usage: generate.py <provider>"
 
 
 def load_tmpl(tmpl: str) -> Template:
-    env = Environment(loader=FileSystemLoader(template_dir()))
+    env = Environment(loader=FileSystemLoader(template_dir()), autoescape=True)
     env.filters["up_or_title"] = up_or_title
     return env.get_template(tmpl)
 
